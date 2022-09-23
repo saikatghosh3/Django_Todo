@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{ background-color: red;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 20px;
+    
+        }
+        .btn1{
+background-color: yellow;
+padding: 10px;
+border:1px solid black;
+border-radius: 20px;
+
+        }
+        .none{
+            padding: 20px;
+        }
+     </style>
+</head>
+<body>
+    <div class="none">
+    <p>are you sure you want to delete"{{item.title}}"</p>
+
+<a href="{%url 'list'%}" class="btn1">cancle</a>
+<form method="POST" action="">
+    {%csrf_token%}
+    <br><br>
+    <input type="submit" class="btn" name="confirm">
+</div>
+</form>
+</body>
+</html>
+

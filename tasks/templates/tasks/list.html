@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{ background-color: red;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 20px;
+        }
+        .link{
+            font-size: 20px;
+            padding: 15px;
+            color: maroon;
+        }
+        .none{ background-color: mediumslateblue;
+            padding: 10px;
+        border: 1px solid black;
+        border-radius: 20px; 
+        }
+    
+     </style>
+</head>
+<body>
+<div class="main">
+    <h2>TO DO</h2>
+    <form method="POST" action="/">
+        Title: {{form.title}}
+        {%csrf_token%}
+       
+        <input type="submit" class="btn" name="Create Task">
+    </form>
+{%for task in tasks%}
+<div class="link">
+    <a href="{%url 'update_task' task.id %}" class="none">Update</class=btn>
+    <a href="{%url 'delete_task' task.id %}" class="none">delete</a>
+    {% if task.completed == True %}
+    <del>{{task.title}}</del>
+    {% else %}
+    <span>{{task.title}}</span>
+    {% endif %}
+</div>
+    {%  endfor %}
+</div>
+
+</body>
+</html>
